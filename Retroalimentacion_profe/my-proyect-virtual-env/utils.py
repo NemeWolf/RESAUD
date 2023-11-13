@@ -1,3 +1,5 @@
+#Calcula el costo de la apí
+
 def openai_api_calculate_cost(usage,model="gpt-3.5-turbo-16k"):
     pricing = {
         'gpt-3.5-turbo-4k': {

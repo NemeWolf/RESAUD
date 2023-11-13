@@ -1,0 +1,28 @@
+Para iniciar un repositorio (avanzar en el terminal a la ruta del repositorio): git init 
+
+comando -q/ --quiet ---> Oculta mensajes de creqación del repositorio
+
+comando -b UnNombre / --initial-branch=UnNombre ---> Este comando permite cambiar el nombre de la rama inicial por otro distinto
+
+ej: git init -b Proyecto01 -q
+
+Para guardar nuestro repositorio a github
+
+-Creamos nuestro repositorio en github (https://github.com/new)
+-Inicializamos un repositorio con git init en la terminal
+-Revisamos con git status
+-Trackeamos los cambios: Comando git add . ---> Guardamos la nueva versión de nuestro sitio dentro del repositorio
+-Revisamos con git status
+-Comitiamos: Comando git commit -m "Descripción" ---> Almacenamos los cambios y le ponemos una descripción al contenido cambiado/(añadido)
+-Vincular el repositorio local con el repositorio local de github: Copiamos link que aparece en repositorio vacio: ej git remote add origin https://github.com/NemeWolf/RESAUD.git
+-Tiramos por unica vez git push --set-upstream origin master para subir nuestro cambios a git hub
+-Para otro cambios usar git push
+
+
+
+
+
+
+
+
+
