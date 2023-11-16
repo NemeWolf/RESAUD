@@ -1,0 +1,9 @@
+torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+git+https://github.com/openai/whisper.git 
+openai
+
+
+poetry init -----> Iniciar ambiente virtual
+peotrey add -----> Añadir paquete
+poetry update ---> Actualizar todos los paquetes a la ultima version
+poetry shell ----> PAra levantar ambiente
