@@ -7,6 +7,7 @@ from openai import OpenAI
 from config import OPEN_AI_API_KEY, MODEL_VERSION,TEMPERATURE_MEMORY
 from playsound import playsound
 
+
 #Cargamos key openai
 client = OpenAI(
   api_key=OPEN_AI_API_KEY,
