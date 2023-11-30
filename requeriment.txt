@@ -2,6 +2,15 @@ torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 git+https://github.com/openai/whisper.git 
 openai
 
+pip install git+https://github.com/jiaaro/pydub.git@master
+
+choco y fmpegg
+
+tkinter
+
+playsound
+
+tal vez wheel
 
 poetry init -----> Iniciar ambiente virtual
 peotrey add -----> Añadir paquete

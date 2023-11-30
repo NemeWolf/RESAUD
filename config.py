@@ -1,5 +1,5 @@
 #Cargamos key
-OPEN_AI_API_KEY = "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"
+OPEN_AI_API_KEY = "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"
 MODEL_VERSION = "gpt-4-1106-preview"
-
+#MODEL_VERSION = "gpt-3.5-turbo-1106"	
 TEMPERATURE_MEMORY = 0.0
