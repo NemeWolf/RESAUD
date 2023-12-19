@@ -1,17 +1,23 @@
 from tkinter import *
+from tkinter import filedialog
+from tkinter import ttk
 import os
 from PIL import ImageTk, Image
 import whisper
 from whisper.utils import get_writer
 from openai import OpenAI
 from config import OPEN_AI_API_KEY, MODEL_VERSION,TEMPERATURE_MEMORY
+from metod import openai_open, transcribir, resumir, openFile, speech, keywords
 from playsound import playsound
 
-
+#==============================================================================================================================
 #Cargamos key openai
 client = OpenAI(
-  api_key=OPEN_AI_API_KEY,
+api_key=OPEN_AI_API_KEY,
 )
+
+#==============================================================================================================================
+#FUNCIONES
 
 #TRANSCRIBIR
 def transcribir(modo:str, path:str, ventana, ventana_texto01):
@@ -35,7 +41,7 @@ def transcribir(modo:str, path:str, ventana, ventana_texto01):
   global sumary_name
   sumary_name = text_name + "_summary"
   
-  ruta_transcripcion = os.getcwd() + "/Transcripciones/" 
+  ruta_transcripcion = os.getcwd() + "/transcription_text/" 
 
   
   with open(ruta_transcripcion + str(text_name) + ".txt", "w") as archivo:
@@ -119,9 +125,9 @@ def resumir(model:str,Transcripcion, ventana, ventana_texto02, prompt_type, key_
   global sumary
   sumary =  sumary_response
   
-  ruta_transcripcion = os.getcwd() + "/Resumenes/" 
+  ruta_sumary = os.getcwd() + "/sumary_text/" 
   
-  with open(ruta_transcripcion + str(sumary_name) + ".txt", "w") as archivo:
+  with open(ruta_sumary + str(sumary_name) + ".txt", "w") as archivo:
     archivo.write(sumary.choices[0].message.content)
     
   # Inserta el texto en la ventana de texto
@@ -163,19 +169,19 @@ def keywords(resset, key_word:list, input:str):
     print(key_word)
     
 
-
-#TKINTER
-from tkinter import filedialog
-from tkinter import ttk
-
+#==============================================================================================================================
+#INICIALIZAMOS VALORES POR DEFECTO  
 texto_size = ""
 prompt_type = "Academico"
 key_word = []
 
+#==============================================================================================================================
+#INICIALIZAMOS VENTANA
+#------------------------------------------------------------------------------------------
 #ventana principal
 ventana = Tk()
 
-icono = PhotoImage(file=os.getcwd()+"\PIC\ICO.png")
+icono = PhotoImage(file=os.getcwd()+"\img\ICO.png")
 ventana.iconphoto(True, icono)
 
 ventana.config(
@@ -184,6 +190,7 @@ ventana.config(
 
 ventana.title("Resaud")
 
+#------------------------------------------------------------------------------------------
 #Marcos
 marco1 = LabelFrame(
   ventana,
@@ -205,9 +212,10 @@ marco2 = LabelFrame(
   borde=0,
 )
 
+#------------------------------------------------------------------------------------------
 #logo
 # Carga la imagen
-img = Image.open(os.getcwd()+"\PIC\LOGO.png")
+img = Image.open(os.getcwd()+"\img\LOGO.png")
 
 # Redimensiona la imagen
 img = img.resize((150, 150), Image.Resampling.LANCZOS)
@@ -223,7 +231,7 @@ logo.config(
   padx=5,
 )
 
-
+#------------------------------------------------------------------------------------------
 #Ventanas de texto
 ventana_texto01 = Text(marco2)
 ventana_texto01.config(
@@ -244,7 +252,8 @@ ventana_texto02.config(
 
 )
 
-#Botones
+#------------------------------------------------------------------------------------------
+#Botones y funciones
 buttonOpenFile = Button(marco1,text="Seleccionar Audio",command=openFile, font=("Cascadia Code",12))
 
 buttonTranscribe = Button(marco1,text="Transcribir", command=lambda: transcribir("base", ruta,ventana, ventana_texto01), font=("Cascadia Code",12))
@@ -257,7 +266,7 @@ buttonSEND = Button(marco1, text="Añadir", command=lambda: keywords(resset=1, k
 
 buttonRESET = Button(marco1, text="Borrar", command=lambda: keywords(resset=0, key_word=key_word,input=valor.get()), font=("Cascadia Code",12))
 
-
+#------------------------------------------------------------------------------------------
 #Selectores 
 prompt_selector = ttk.Combobox(
   marco1, 
@@ -277,7 +286,8 @@ size_selector = ttk.Combobox(
 )
 size_selector.current(1)
 
-# Crea una variable StringVar
+#------------------------------------------------------------------------------------------
+# Crea una variable StringVar para añadir keywords
 valor = StringVar()
 keyword_in = Entry(
   marco1, 
@@ -285,7 +295,7 @@ keyword_in = Entry(
   font=("Cascadia Code",12)
 )
 
-
+#------------------------------------------------------------------------------------------
 #Ajustamos tamanhos
 marco1.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 marco2.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
@@ -308,6 +318,6 @@ buttonRESET.grid(row=6, column=1, padx=10, pady=10)
 buttonResumir.grid(row=7, column=0,  columnspan=2, padx=10, pady=10)
 buttonAudio.grid(row=8, column=0,  columnspan=2, padx=10, pady=10)
 
-#columnspan: numero de columnas que ocupa el widget
-
+#------------------------------------------------------------------------------------------
+#GENERAMOS VENTANA
 ventana.mainloop()

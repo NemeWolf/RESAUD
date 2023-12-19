@@ -12,17 +12,29 @@ Para guardar nuestro repositorio a github
 -Inicializamos un repositorio con git init en la terminal
 -Revisamos con git status
 -Trackeamos los cambios: Comando git add . ---> Guardamos la nueva versión de nuestro sitio dentro del repositorio
+-Trackeamos los cambios uno por uno: Comando git add {archivo} ---> Guardamos la nueva versión de nuestro sitio dentro del repositorio
 -Revisamos con git status
 -Comitiamos: Comando git commit -m "Descripción" ---> Almacenamos los cambios y le ponemos una descripción al contenido cambiado/(añadido)
 -Vincular el repositorio local con el repositorio local de github: Copiamos link que aparece en repositorio vacio: ej git remote add origin https://github.com/NemeWolf/RESAUD.git
 -Tiramos por unica vez git push --set-upstream origin master para subir nuestro cambios a git hub
 -Para otro cambios usar git push
 
+Para clonar el repositorio a tu directorio sigue estos pasos:
 
+Visual Studio:
 
+-Abre Visual Studio y selecciona Clonar o extraer código.
+-En la casilla Repositorio, pega la URL del repositorio de GitHub que quieres clonar. Por ejemplo, 5.
+-En la casilla Ruta local, elige la carpeta donde quieres guardar el repositorio clonado. Por ejemplo, C:\Users\user\Documents\Visual Studio 2019\Projects\LibrosWeb.
+-Haz clic en Clonar. Visual Studio descargará el repositorio y lo abrirá en el Explorador de soluciones.
+-Ahora puedes modificar los archivos del repositorio y sincronizarlos con GitHub usando el panel Control de código fuente de Visual Studio.
 
-
-
+Terminal:
+-Abre el terminal de tu computadora y cambia el directorio a la carpeta donde quieres clonar el repositorio usando el comando cd [RUTA AL DIRECTORIO].
+-Clona el repositorio usando el comando: git clone [URL HTTPS DEL REPOSITORIO]. Puedes obtener la URL del repositorio en GitHub.com, en la página de Configuración rápida.
+-Abre Visual Studio y selecciona Abrir un proyecto o una solución.
+-Busca la carpeta donde clonaste el repositorio y abre el archivo de solución (.sln) que contiene el código.
+-Ahora puedes modificar los archivos del repositorio y sincronizarlos con GitHub usando el panel Control de código fuente de Visual Studio.
 
 
 
