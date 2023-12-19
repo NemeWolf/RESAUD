@@ -12,9 +12,10 @@ Para guardar nuestro repositorio a github
 -Inicializamos un repositorio con git init en la terminal
 -Revisamos con git status
 -Trackeamos los cambios: Comando git add . ---> Guardamos la nueva versión de nuestro sitio dentro del repositorio
--Trackeamos los cambios uno por uno: Comando git add {archivo} ---> Guardamos la nueva versión de nuestro sitio dentro del repositorio
+    -Trackeamos los cambios uno por uno: Comando git add {archivo} 
 -Revisamos con git status
 -Comitiamos: Comando git commit -m "Descripción" ---> Almacenamos los cambios y le ponemos una descripción al contenido cambiado/(añadido)
+    -alternativamente: podemos usar git commit -a y la descripción ponerla en espacio vacio debajo del text. Luego click en palomita esquina superior
 -Vincular el repositorio local con el repositorio local de github: Copiamos link que aparece en repositorio vacio: ej git remote add origin https://github.com/NemeWolf/RESAUD.git
 -Tiramos por unica vez git push --set-upstream origin master para subir nuestro cambios a git hub
 -Para otro cambios usar git push
